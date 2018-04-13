@@ -19,7 +19,7 @@ int main() {
     for(int i=0;i<8;i++){
         aux = new Nodo<int>;
         cola.Remover(aux);
-        cout<<"Prioridad cliente "<<i+1<<":"<<aux->ObtPrioridad()<<"\n valor: "<<aux->ObtInfo()<<endl;
+        cout<<"Prioridad cliente "<<i+1<<": "<<aux->ObtPrioridad()<<"\n valor: "<<aux->ObtInfo()<<endl;
 
     }
 

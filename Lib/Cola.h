@@ -83,16 +83,24 @@ public:
                 InsertarNodo(nuevo);
             else{
                 Nodo<Tipo> *aux;
+                int x = 0;    //valor sentinela para que no meta las vainas 99999999999 veces
                 aux = CrearNodo(0,9999);
                 InsertarNodo(aux);
+                aux = new Nodo<Tipo>;
                 Remover(aux);
                 while(aux->ObtPrioridad()!=9999) {
-                    if (nuevo->ObtPrioridad() < aux->ObtPrioridad()) {
+                    if ((nuevo->ObtPrioridad() < aux->ObtPrioridad()) && x!=1) {
                         InsertarNodo(nuevo);
                         InsertarNodo(aux);
-                    }else{
+                        x=1;
+                    }else if(Frente->ObtPrioridad()==9999 && x!=1){
+                        InsertarNodo(aux);
+                        InsertarNodo(nuevo);
+                    }
+                    else{
                         InsertarNodo(aux);
                     }
+                    aux = new Nodo<Tipo>;
                     Remover(aux);
                 }
             }
