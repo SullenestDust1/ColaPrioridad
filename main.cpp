@@ -1,7 +1,27 @@
 #include <iostream>
 #include "Lib/Cola.h"
-
+#include <string>
 int main() {
+    Cola<int> cola;
+    /*Nodo<int> *aux;
+    aux = new Nodo<int>;
+    cola.Remover(aux);
+    cout <<"Prioridad: "<< aux->ObtPrioridad()<<endl;
+    cout <<"Info "<< aux->ObtInfo()<<endl;
+    */
+    cola.InsertarConPrioridad(25,1);
+    cola.InsertarConPrioridad(31,2);
+    cola.InsertarConPrioridad(21,1);
+    cola.InsertarConPrioridad(32,3);
+    cola.InsertarConPrioridad(19,4);
+    cola.InsertarConPrioridad(23,1);
+    cola.InsertarConPrioridad(17,3);
+    cola.InsertarConPrioridad(26,2);
+
+
+
+
+    /*
     Cola<int> cola;
     Nodo<int> *aux;
     aux = new Nodo<int>;
@@ -20,8 +40,6 @@ int main() {
     cola.Remover(aux);
     cout << "Tercer Valor: " << aux->ObtInfo() <<endl;
     cout << "Prioridad: " << aux->ObtPrioridad()<< endl;
-
-
-
+    */
     return 0;
 }
