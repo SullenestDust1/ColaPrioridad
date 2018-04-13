@@ -30,7 +30,19 @@ public:
         }
     };
 
-    
+    Nodo<Tipo>* CrearNodo(Tipo Valor,int p){
+        Nodo<Tipo> *nuevo;
+        if(!Llena()){
+            nuevo = new Nodo<Tipo>;
+            nuevo->AsigInfo(Valor);
+            nuevo->AsigPrioridad(p);
+            nuevo->AsigProx(NULL);
+            return nuevo;
+        }else
+            return NULL;
+    }
+
+
     bool Insertar(Tipo Valor){
         Nodo<Tipo> *nuevo;
         if (!Llena())
@@ -45,6 +57,18 @@ public:
             return true;
         }
         else return false;
+    }
+
+
+    bool InsertarNodo(Nodo<Tipo> *nuevo){
+        if(!Llena() && nuevo!=NULL){
+            if(Final==NULL){
+                Frente=nuevo;
+            }else Final->AsigProx(nuevo);
+            Final=nuevo;
+            return true;
+        } else
+            return false;
     }
 
     bool InsertarConPrioridad(Tipo Valor,int p){
