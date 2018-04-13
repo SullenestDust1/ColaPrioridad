@@ -30,6 +30,7 @@ public:
         }
     };
 
+    //crea el nodo con valor y prioridad
     Nodo<Tipo>* CrearNodo(Tipo Valor,int p){
         Nodo<Tipo> *nuevo;
         if(!Llena()){
@@ -42,7 +43,7 @@ public:
             return NULL;
     }
 
-
+    /*
     bool Insertar(Tipo Valor){
         Nodo<Tipo> *nuevo;
         if (!Llena())
@@ -58,8 +59,9 @@ public:
         }
         else return false;
     }
+    */
 
-
+    //Para insertar el nodo al final de la cola
     bool InsertarNodo(Nodo<Tipo> *nuevo){
         if(!Llena() && nuevo!=NULL){
             if(Final==NULL){
@@ -71,18 +73,30 @@ public:
             return false;
     }
 
-    bool InsertarConPrioridad(Tipo Valor,int p){
-        Nodo<Tipo> *nuevo;
+    //Inserta el nodo de acuerdo con la prioridad
+    bool InsertarConPrioridad(Tipo valor,int p){
+        Nodo<Tipo> *nuevo = new Nodo<Tipo>;
+        nuevo = CrearNodo(valor,p);
         if (!Llena())
         {
-            nuevo=new Nodo<Tipo>;
-            nuevo->AsigInfo(Valor);
-            nuevo->AsigProx(NULL);
-            nuevo->AsigPrioridad(p);
-            if (Final==NULL)
-                Frente=nuevo;
-            else Final->AsigProx(nuevo);
-            Final=nuevo;
+            if (Final==NULL || nuevo->ObtPrioridad()==4)
+                InsertarNodo(nuevo);
+            else{
+                Nodo<Tipo> *aux;
+                aux = new Nodo<Tipo>;
+                aux->AsigPrioridad(9999);
+                InsertarNodo(aux);
+                Remover(aux);
+                while(aux->ObtPrioridad()!=9999) {
+                    if (nuevo->ObtPrioridad() < aux->ObtPrioridad()) {
+                        InsertarNodo(nuevo);
+                        InsertarNodo(aux);
+                    }else{
+                        InsertarNodo(aux);
+                    }
+                    Remover(aux);
+                }
+            }
             return true;
         }
         else return false;
@@ -94,9 +108,8 @@ public:
         {
 
             primero=Frente;
-            Valor->AsigInfo(primero->ObtInfo());
-            Valor->AsigPrioridad(primero->ObtPrioridad());
-            Valor->AsigProx(NULL);
+            Valor->AsigInfo(Frente->ObtInfo());
+            Valor->AsigPrioridad(Frente->ObtPrioridad());
             Frente=primero->ObtProx();
             if (Frente==NULL)
                 Final=NULL;
