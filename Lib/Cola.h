@@ -83,8 +83,7 @@ public:
                 InsertarNodo(nuevo);
             else{
                 Nodo<Tipo> *aux;
-                aux = new Nodo<Tipo>;
-                aux->AsigPrioridad(9999);
+                aux = CrearNodo(0,9999);
                 InsertarNodo(aux);
                 Remover(aux);
                 while(aux->ObtPrioridad()!=9999) {
@@ -108,8 +107,11 @@ public:
         {
 
             primero=Frente;
-            Valor->AsigInfo(Frente->ObtInfo());
-            Valor->AsigPrioridad(Frente->ObtPrioridad());
+            Tipo x = primero->ObtInfo();
+            int p = primero->ObtPrioridad();
+            Valor = new Nodo<Tipo>;
+            Valor->AsigInfo(x);
+            Valor->AsigPrioridad(p);
             Frente=primero->ObtProx();
             if (Frente==NULL)
                 Final=NULL;

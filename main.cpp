@@ -3,12 +3,10 @@
 #include <string>
 int main() {
     Cola<int> cola;
-    /*Nodo<int> *aux;
-    aux = new Nodo<int>;
-    cola.Remover(aux);
-    cout <<"Prioridad: "<< aux->ObtPrioridad()<<endl;
-    cout <<"Info "<< aux->ObtInfo()<<endl;
-    */
+    Nodo<int> *aux;
+    //cola.Remover(aux);
+    //cout <<"Prioridad: "<< aux->ObtPrioridad()<<endl;
+    //cout <<"Info "<< aux->ObtInfo()<<endl;
     cola.InsertarConPrioridad(25,1);
     cola.InsertarConPrioridad(31,2);
     cola.InsertarConPrioridad(21,1);
@@ -17,6 +15,13 @@ int main() {
     cola.InsertarConPrioridad(23,1);
     cola.InsertarConPrioridad(17,3);
     cola.InsertarConPrioridad(26,2);
+
+    for(int i=0;i<8;i++){
+        aux = new Nodo<int>;
+        cola.Remover(aux);
+        cout<<"Prioridad cliente "<<i+1<<":"<<aux->ObtPrioridad()<<"\n valor: "<<aux->ObtInfo()<<endl;
+
+    }
 
 
 
