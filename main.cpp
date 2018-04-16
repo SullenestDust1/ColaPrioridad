@@ -2,22 +2,22 @@
 #include "Lib/Cola.h"
 #include <string>
 int main() {
-    Cola<int> cola;
-    Nodo<int> *aux;
+    Cola<string> cola;
+    Nodo<string> *aux;
     //cola.Remover(aux);
     //cout <<"Prioridad: "<< aux->ObtPrioridad()<<endl;
     //cout <<"Info "<< aux->ObtInfo()<<endl;
-    cola.InsertarConPrioridad(25,1);
-    cola.InsertarConPrioridad(31,2);
-    cola.InsertarConPrioridad(21,1);
-    cola.InsertarConPrioridad(32,3);
-    cola.InsertarConPrioridad(19,4);
-    cola.InsertarConPrioridad(23,1);
-    cola.InsertarConPrioridad(17,3);
-    cola.InsertarConPrioridad(26,2);
+    cola.InsertarConPrioridad("25",1);
+    cola.InsertarConPrioridad("26",2);
+    cola.InsertarConPrioridad("21",1);
+    cola.InsertarConPrioridad("32",3);
+    cola.InsertarConPrioridad("19",4);
+    cola.InsertarConPrioridad("23",1);
+    cola.InsertarConPrioridad("17",3);
+    cola.InsertarConPrioridad("26",2);
 
     for(int i=0;i<8;i++){
-        aux = new Nodo<int>;
+        aux = new Nodo<string>;
         cola.Remover(aux);
         cout<<"Prioridad cliente "<<i+1<<": "<<aux->ObtPrioridad()<<"\n valor: "<<aux->ObtInfo()<<endl;
 
