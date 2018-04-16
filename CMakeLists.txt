@@ -3,4 +3,4 @@ project(ColaPrioridad)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ColaPrioridad main.cpp Lib/Cola.h)
+add_executable(ColaPrioridad main.cpp Lib/Cola.h Lib/Genericas/VGeneral.cpp)
